@@ -14,14 +14,13 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->foreign('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('name');
-            $table->string('phone');
-            $table->string('position');
-            $table->string('name');
+            $table->string('name',255);
+            $table->string('phone',255);
+            $table->string('position',255);
             $table->date('date_of_birth');
             $table->date('date_of_joining');
             $table->decimal('salary',8,2);
-            $table->string('address');
+            $table->string('address',255);
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name',255);
             $table->integer('stock');
             $table->string('unit');
             $table->foreignId('supplier_id')->constrained('id')->onDelete('cascade');

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('payment_amount');
+            $table->string('payment_amount',255);
             $table->integer('sub_total');
             $table->integer('tax');
             $table->integer('discount');
@@ -22,8 +22,8 @@ return new class extends Migration
             $table->integer('payment_method');
             $table->integer('total_item');
             $table->integer('id_kasir');
-            $table->string('nama_kasir');
-            $table->string('transaction_time');
+            $table->string('nama_kasir',255);
+            $table->string('transaction_time',255);
             $table->enum('order_type',['dinein','reservasi'])->nullable();
             $table->unsignedBigInteger('id_reservasi')->nullable();
             $table->timestamps();
