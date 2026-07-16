@@ -11,12 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inventories', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->foreignID('user_id')->constrained('users')->onDelete('cascade');
             $table->string('name',255);
-            $table->integer('stock');
-            $table->string('unit');
-            $table->foreignId('supplier_id')->constrained('id')->onDelete('cascade');
+            $table->string('phone',255);
+            $table->string('position',255);
+            $table->date('date_of_birth');
+            $table->date('date_of_joining');
+            $table->decimal('salary',8,2);
+            $table->string('address',255);
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inventories');
+        Schema::dropIfExists('employees');
     }
 };
